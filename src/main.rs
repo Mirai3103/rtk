@@ -9,7 +9,7 @@ mod parser;
 // Re-export command modules for routing
 use cmds::cloud::{aws_cmd, container, curl_cmd, psql_cmd, wget_cmd};
 use cmds::dotnet::{binlog, dotnet_cmd, dotnet_format_report, dotnet_trx};
-use cmds::flutter::flutter_test_cmd;
+use cmds::flutter::{flutter_pub_cmd, flutter_test_cmd};
 use cmds::git::{diff_cmd, gh_cmd, git, glab_cmd, gt_cmd};
 use cmds::go::{go_cmd, golangci_cmd};
 use cmds::js::{
@@ -1437,6 +1437,13 @@ enum FlutterCommands {
         #[arg(trailing_var_arg = true, allow_hyphen_values = true)]
         args: Vec<String>,
     },
+    /// flutter pub get/upgrade with compact output (suppresses package list)
+    Pub {
+        /// pub subcommand: get, upgrade, outdated, add, remove, etc.
+        subcommand: String,
+        #[arg(trailing_var_arg = true, allow_hyphen_values = true)]
+        args: Vec<String>,
+    },
     /// Passthrough: runs any unsupported flutter subcommand directly
     #[command(external_subcommand)]
     Other(Vec<OsString>),
@@ -2410,6 +2417,14 @@ fn run_cli() -> Result<i32> {
 
         Commands::Flutter { command } => match command {
             FlutterCommands::Test { args } => flutter_test_cmd::run(&args, cli.verbose)?,
+            FlutterCommands::Pub { subcommand, args } => match subcommand.as_str() {
+                "get" | "upgrade" => flutter_pub_cmd::run(&subcommand, &args, cli.verbose)?,
+                _ => {
+                    let mut pub_args = vec![OsString::from("pub"), OsString::from(&subcommand)];
+                    pub_args.extend(args.iter().map(OsString::from));
+                    crate::core::runner::run_passthrough("flutter", &pub_args, cli.verbose)?
+                }
+            },
             FlutterCommands::Other(args) => {
                 crate::core::runner::run_passthrough("flutter", &args, cli.verbose)?
             }

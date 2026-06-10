@@ -525,6 +525,15 @@ pub const RULES: &[RtkRule] = &[
         subcmd_status: &[],
     },
     RtkRule {
+        pattern: r"^flutter\s+pub\s+(get|upgrade)\b",
+        rtk_cmd: "rtk flutter pub",
+        rewrite_prefixes: &["flutter"],
+        category: "Flutter",
+        savings_pct: 80.0,
+        subcmd_savings: &[("get", 80.0), ("upgrade", 80.0)],
+        subcmd_status: &[],
+    },
+    RtkRule {
         pattern: r"^bundle\s+(install|update)\b",
         rtk_cmd: "rtk bundle",
         rewrite_prefixes: &["bundle"],
