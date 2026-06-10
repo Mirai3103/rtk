@@ -1,0 +1,33 @@
+  1s compiling builders/aot
+  2s compiling builders/aot
+  3s compiling builders/aot
+  4s compiling builders/aot
+  5s compiling builders/aot
+  6s compiling builders/aot
+  7s compiling builders/aot
+  8s compiling builders/aot
+  9s compiling builders/aot
+  10s compiling builders/aot
+  11s compiling builders/aot
+  12s compiling builders/aot
+  13s compiling builders/aot
+  15s compiling builders/aot
+  16s compiling builders/aot
+  17s compiling builders/aot
+  18s compiling builders/aot
+  19s compiling builders/aot
+  20s compiling builders/aot
+  21s compiling builders/aot
+  22s compiling builders/aot
+  23s compiling builders/aot
+  23s compiling builders/aot
+  0s json_serializable on 8 inputs; lib/main.dart
+  5s json_serializable on 8 inputs: 1 no-op; spent 4s analyzing; lib/models/cart.dart
+W json_serializable on lib/models/product.dart:
+  The version constraint "^4.9.0" on json_annotation allows versions before 4.12.0 which is not allowed.
+  6s json_serializable on 8 inputs: 1 output, 7 no-op; spent 5s analyzing
+  0s source_gen:combining_builder on 8 inputs; lib/main.dart
+  0s source_gen:combining_builder on 8 inputs: 1 output, 7 no-op
+  0s mockito:mockBuilder on 6 inputs; test/mocks.dart
+  0s mockito:mockBuilder on 6 inputs: 3 skipped, 1 output, 2 no-op
+  Built with build_runner/aot in 29s; wrote 3 outputs.

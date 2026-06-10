@@ -1,0 +1,24 @@
+Analyzing rtk_flutter...
+
+warning - lib/models/user.dart:30:8 - The declaration '_unusedPrivateMethod' isn't referenced. Try removing the declaration of '_unusedPrivateMethod'. - unused_element
+warning - lib/services/api_service.dart:35:9 - The value of the local variable 'unused' isn't used. Try removing the variable or using it. - unused_local_variable
+   info - lib/main.dart:21:5 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - lib/main.dart:26:5 - Local variables should be final. Try making the variable final. - prefer_final_locals
+   info - lib/main.dart:28:5 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - lib/main.dart:35:3 - Constructors in '@immutable' classes should be declared as 'const'. Try adding 'const' to the constructor declaration. - prefer_const_constructors_in_immutables
+   info - lib/main.dart:40:14 - Unnecessary use of double quotes. Try using single quotes unless the string contains single quotes. - prefer_single_quotes
+   info - lib/main.dart:44:31 - Unnecessary use of double quotes. Try using single quotes unless the string contains single quotes. - prefer_single_quotes
+   info - lib/models/user.dart:4:7 - An uninitialized field should have an explicit type annotation. Try adding a type annotation. - prefer_typing_uninitialized_variables
+   info - lib/models/user.dart:4:7 - Missing type annotation. Try replacing 'var' with a type annotation. - strict_top_level_inference
+   info - lib/models/user.dart:12:3 - Missing type annotation. Try adding a type annotation. - strict_top_level_inference
+   info - lib/models/user.dart:12:3 - The method 'toJson' should have a return type but doesn't. Try adding a return type to the method. - always_declare_return_types
+   info - lib/models/user.dart:20:5 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - lib/models/user.dart:25:5 - Local variables should be final. Try making the variable final. - prefer_final_locals
+   info - lib/models/user.dart:31:5 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - lib/services/api_service.dart:14:5 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - lib/services/api_service.dart:19:7 - Local variables should be final. Try making the variable final. - prefer_final_locals
+   info - lib/services/api_service.dart:23:5 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - lib/services/api_service.dart:29:5 - Local variables should be final. Try making the variable final. - prefer_final_locals
+   info - lib/services/api_service.dart:35:5 - Local variables should be final. Try making the variable final. - prefer_final_locals
+
+20 issues found.

@@ -1,6 +1,7 @@
 //! Command filter modules organized by language ecosystem.
 
 pub mod cloud;
+pub mod dart;
 pub mod dotnet;
 pub mod flutter;
 pub mod git;

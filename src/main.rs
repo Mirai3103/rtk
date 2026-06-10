@@ -8,6 +8,7 @@ mod parser;
 
 // Re-export command modules for routing
 use cmds::cloud::{aws_cmd, container, curl_cmd, psql_cmd, wget_cmd};
+use cmds::dart::{build_runner_cmd, dart_analyze_cmd};
 use cmds::dotnet::{binlog, dotnet_cmd, dotnet_format_report, dotnet_trx};
 use cmds::flutter::{flutter_pub_cmd, flutter_test_cmd};
 use cmds::git::{diff_cmd, gh_cmd, git, glab_cmd, gt_cmd};
@@ -790,6 +791,12 @@ enum Commands {
         command: GoCommands,
     },
 
+    /// Dart commands with compact output
+    Dart {
+        #[command(subcommand)]
+        command: DartCommands,
+    },
+
     /// Flutter commands with compact output
     Flutter {
         #[command(subcommand)]
@@ -1431,7 +1438,31 @@ fn run_fallback(parse_error: clap::Error) -> Result<i32> {
 }
 
 #[derive(Debug, Subcommand)]
+enum DartCommands {
+    /// dart analyze with compact issue output
+    Analyze {
+        #[arg(trailing_var_arg = true, allow_hyphen_values = true)]
+        args: Vec<String>,
+    },
+    /// dart run build_runner build/watch/clean with progress stripped
+    BuildRunner {
+        /// subcommand: build | watch | clean
+        subcommand: String,
+        #[arg(trailing_var_arg = true, allow_hyphen_values = true)]
+        args: Vec<String>,
+    },
+    /// Passthrough: runs any unsupported dart subcommand directly
+    #[command(external_subcommand)]
+    Other(Vec<OsString>),
+}
+
+#[derive(Debug, Subcommand)]
 enum FlutterCommands {
+    /// flutter analyze with compact issue output
+    Analyze {
+        #[arg(trailing_var_arg = true, allow_hyphen_values = true)]
+        args: Vec<String>,
+    },
     /// Run tests and show only failures (injects -r json)
     Test {
         #[arg(trailing_var_arg = true, allow_hyphen_values = true)]
@@ -2415,7 +2446,29 @@ fn run_cli() -> Result<i32> {
             GoCommands::Other(args) => go_cmd::run_other(&args, cli.verbose)?,
         },
 
+        Commands::Dart { command } => match command {
+            DartCommands::Analyze { args } => dart_analyze_cmd::run("dart", &args, cli.verbose)?,
+            DartCommands::BuildRunner { subcommand, args } => match subcommand.as_str() {
+                "watch" => {
+                    let mut a = vec![
+                        OsString::from("run"),
+                        OsString::from("build_runner"),
+                        OsString::from("watch"),
+                    ];
+                    a.extend(args.iter().map(OsString::from));
+                    crate::core::runner::run_passthrough("dart", &a, cli.verbose)?
+                }
+                _ => build_runner_cmd::run(&subcommand, &args, cli.verbose)?,
+            },
+            DartCommands::Other(args) => {
+                crate::core::runner::run_passthrough("dart", &args, cli.verbose)?
+            }
+        },
+
         Commands::Flutter { command } => match command {
+            FlutterCommands::Analyze { args } => {
+                dart_analyze_cmd::run("flutter", &args, cli.verbose)?
+            }
             FlutterCommands::Test { args } => flutter_test_cmd::run(&args, cli.verbose)?,
             FlutterCommands::Pub { subcommand, args } => match subcommand.as_str() {
                 "get" | "upgrade" => flutter_pub_cmd::run(&subcommand, &args, cli.verbose)?,
@@ -2805,6 +2858,7 @@ fn is_operational_command(cmd: &Commands) -> bool {
             | Commands::Pip { .. }
             | Commands::Uv { .. }
             | Commands::Go { .. }
+            | Commands::Dart { .. }
             | Commands::Flutter { .. }
             | Commands::Sbt { .. }
             | Commands::GolangciLint { .. }
