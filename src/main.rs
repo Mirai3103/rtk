@@ -9,6 +9,7 @@ mod parser;
 // Re-export command modules for routing
 use cmds::cloud::{aws_cmd, container, curl_cmd, psql_cmd, wget_cmd};
 use cmds::dotnet::{binlog, dotnet_cmd, dotnet_format_report, dotnet_trx};
+use cmds::flutter::flutter_test_cmd;
 use cmds::git::{diff_cmd, gh_cmd, git, glab_cmd, gt_cmd};
 use cmds::go::{go_cmd, golangci_cmd};
 use cmds::js::{
@@ -789,6 +790,12 @@ enum Commands {
         command: GoCommands,
     },
 
+    /// Flutter commands with compact output
+    Flutter {
+        #[command(subcommand)]
+        command: FlutterCommands,
+    },
+
     /// SBT (Scala Build Tool) commands with compact output
     Sbt {
         #[command(subcommand)]
@@ -1421,6 +1428,18 @@ fn run_fallback(parse_error: clap::Error) -> Result<i32> {
             }
         }
     }
+}
+
+#[derive(Debug, Subcommand)]
+enum FlutterCommands {
+    /// Run tests and show only failures (injects -r json)
+    Test {
+        #[arg(trailing_var_arg = true, allow_hyphen_values = true)]
+        args: Vec<String>,
+    },
+    /// Passthrough: runs any unsupported flutter subcommand directly
+    #[command(external_subcommand)]
+    Other(Vec<OsString>),
 }
 
 #[derive(Debug, Subcommand)]
@@ -2389,6 +2408,13 @@ fn run_cli() -> Result<i32> {
             GoCommands::Other(args) => go_cmd::run_other(&args, cli.verbose)?,
         },
 
+        Commands::Flutter { command } => match command {
+            FlutterCommands::Test { args } => flutter_test_cmd::run(&args, cli.verbose)?,
+            FlutterCommands::Other(args) => {
+                crate::core::runner::run_passthrough("flutter", &args, cli.verbose)?
+            }
+        },
+
         Commands::Sbt { command } => match command {
             SbtCommands::Test { args } => sbt_cmd::run_test(&args, cli.verbose)?,
             SbtCommands::Compile { args } => sbt_cmd::run_compile(&args, cli.verbose)?,
@@ -2764,6 +2790,7 @@ fn is_operational_command(cmd: &Commands) -> bool {
             | Commands::Pip { .. }
             | Commands::Uv { .. }
             | Commands::Go { .. }
+            | Commands::Flutter { .. }
             | Commands::Sbt { .. }
             | Commands::GolangciLint { .. }
             | Commands::Gt { .. }

@@ -516,6 +516,15 @@ pub const RULES: &[RtkRule] = &[
         ..RtkRule::DEFAULT
     },
     RtkRule {
+        pattern: r"^flutter\s+test\b",
+        rtk_cmd: "rtk flutter test",
+        rewrite_prefixes: &["flutter"],
+        category: "Flutter",
+        savings_pct: 85.0,
+        subcmd_savings: &[("test", 85.0)],
+        subcmd_status: &[],
+    },
+    RtkRule {
         pattern: r"^bundle\s+(install|update)\b",
         rtk_cmd: "rtk bundle",
         rewrite_prefixes: &["bundle"],

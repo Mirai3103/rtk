@@ -1,0 +1,60 @@
+{"protocolVersion":"0.1.1","runnerVersion":null,"pid":25529,"type":"start","time":0}
+{"suite":{"id":0,"platform":"vm","path":"/home/laffy/claude-workspace/rtk_flutter/test/widget_test.dart"},"type":"suite","time":0}
+{"test":{"id":1,"name":"loading /home/laffy/claude-workspace/rtk_flutter/test/widget_test.dart","suiteID":0,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":1}
+{"suite":{"id":2,"platform":"vm","path":"/home/laffy/claude-workspace/rtk_flutter/test/unit/user_test.dart"},"type":"suite","time":4}
+{"test":{"id":3,"name":"loading /home/laffy/claude-workspace/rtk_flutter/test/unit/user_test.dart","suiteID":2,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":4}
+{"count":2,"time":5,"type":"allSuites"}
+{"testID":3,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":6894}
+{"group":{"id":4,"suiteID":2,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":9,"line":null,"column":null,"url":null},"type":"group","time":6896}
+{"group":{"id":5,"suiteID":2,"parentID":4,"name":"User model","metadata":{"skip":false,"skipReason":null},"testCount":6,"line":5,"column":3,"url":"file:///home/laffy/claude-workspace/rtk_flutter/test/unit/user_test.dart"},"type":"group","time":6897}
+{"test":{"id":6,"name":"User model creates user with correct name","suiteID":2,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":6,"column":5,"url":"file:///home/laffy/claude-workspace/rtk_flutter/test/unit/user_test.dart"},"type":"testStart","time":6897}
+{"testID":1,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":6904}
+{"group":{"id":7,"suiteID":0,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":5,"line":null,"column":null,"url":null},"type":"group","time":6905}
+{"group":{"id":8,"suiteID":0,"parentID":7,"name":"Counter widget","metadata":{"skip":false,"skipReason":null},"testCount":5,"line":14,"column":3,"url":"file:///home/laffy/claude-workspace/rtk_flutter/test/widget_test.dart"},"type":"group","time":6905}
+{"test":{"id":9,"name":"Counter widget shows initial count of 0","suiteID":0,"groupIDs":[7,8],"metadata":{"skip":false,"skipReason":null},"line":174,"column":5,"url":"package:flutter_test/src/widget_tester.dart","root_line":15,"root_column":5,"root_url":"file:///home/laffy/claude-workspace/rtk_flutter/test/widget_test.dart"},"type":"testStart","time":6905}
+{"testID":6,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6919}
+{"test":{"id":10,"name":"User model creates user with correct email","suiteID":2,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":11,"column":5,"url":"file:///home/laffy/claude-workspace/rtk_flutter/test/unit/user_test.dart"},"type":"testStart","time":6920}
+{"testID":10,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6922}
+{"test":{"id":11,"name":"User model toJson returns map with all fields","suiteID":2,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":16,"column":5,"url":"file:///home/laffy/claude-workspace/rtk_flutter/test/unit/user_test.dart"},"type":"testStart","time":6923}
+{"testID":11,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6927}
+{"test":{"id":12,"name":"User model isAdult returns true for age >= 18","suiteID":2,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":24,"column":5,"url":"file:///home/laffy/claude-workspace/rtk_flutter/test/unit/user_test.dart"},"type":"testStart","time":6928}
+{"testID":12,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6931}
+{"test":{"id":13,"name":"User model isAdult returns false for age < 18","suiteID":2,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":29,"column":5,"url":"file:///home/laffy/claude-workspace/rtk_flutter/test/unit/user_test.dart"},"type":"testStart","time":6931}
+{"testID":13,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6934}
+{"test":{"id":14,"name":"User model age validation fails for negative age","suiteID":2,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":34,"column":5,"url":"file:///home/laffy/claude-workspace/rtk_flutter/test/unit/user_test.dart"},"type":"testStart","time":6934}
+{"testID":14,"error":"Expected: a value greater than <0>\n  Actual: <-1>\n   Which: is not a value greater than <0>\nAge should be positive but was -1\n","stackTrace":"package:matcher                                     expect\npackage:flutter_test/src/widget_tester.dart 473:18  expect\ntest/unit/user_test.dart 37:7                       main.<fn>.<fn>\n","isFailure":true,"type":"error","time":6952}
+{"testID":14,"result":"failure","skipped":false,"hidden":false,"type":"testDone","time":6953}
+{"group":{"id":15,"suiteID":2,"parentID":4,"name":"AdminUser","metadata":{"skip":false,"skipReason":null},"testCount":3,"line":42,"column":3,"url":"file:///home/laffy/claude-workspace/rtk_flutter/test/unit/user_test.dart"},"type":"group","time":6953}
+{"test":{"id":16,"name":"AdminUser has role assigned","suiteID":2,"groupIDs":[4,15],"metadata":{"skip":false,"skipReason":null},"line":43,"column":5,"url":"file:///home/laffy/claude-workspace/rtk_flutter/test/unit/user_test.dart"},"type":"testStart","time":6953}
+{"testID":16,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6955}
+{"test":{"id":17,"name":"AdminUser hasPermission returns true for admin role","suiteID":2,"groupIDs":[4,15],"metadata":{"skip":false,"skipReason":null},"line":48,"column":5,"url":"file:///home/laffy/claude-workspace/rtk_flutter/test/unit/user_test.dart"},"type":"testStart","time":6955}
+{"testID":17,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":6957}
+{"test":{"id":18,"name":"AdminUser strict permission check fails for regular admin","suiteID":2,"groupIDs":[4,15],"metadata":{"skip":false,"skipReason":null},"line":53,"column":5,"url":"file:///home/laffy/claude-workspace/rtk_flutter/test/unit/user_test.dart"},"type":"testStart","time":6957}
+{"testID":18,"error":"Expected: true\n  Actual: <false>\nExpected admin to have strict permission but got false\n","stackTrace":"package:matcher                                     expect\npackage:flutter_test/src/widget_tester.dart 473:18  expect\ntest/unit/user_test.dart 56:7                       main.<fn>.<fn>\n","isFailure":true,"type":"error","time":6962}
+{"testID":18,"result":"failure","skipped":false,"hidden":false,"type":"testDone","time":6962}
+{"testID":9,"messageType":"print","message":"Fetching user from https://jsonplaceholder.typicode.com/users/1","type":"print","time":7258}
+{"testID":9,"messageType":"print","message":"Error: 400","type":"print","time":7419}
+{"testID":9,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":7480}
+{"test":{"id":19,"name":"Counter widget increments counter on FAB tap","suiteID":0,"groupIDs":[7,8],"metadata":{"skip":false,"skipReason":null},"line":174,"column":5,"url":"package:flutter_test/src/widget_tester.dart","root_line":21,"root_column":5,"root_url":"file:///home/laffy/claude-workspace/rtk_flutter/test/widget_test.dart"},"type":"testStart","time":7480}
+{"testID":19,"messageType":"print","message":"Fetching user from https://jsonplaceholder.typicode.com/users/1","type":"print","time":7509}
+{"testID":19,"messageType":"print","message":"Error: 400","type":"print","time":7528}
+{"testID":19,"messageType":"print","message":"Counter incremented to 1","type":"print","time":7584}
+{"testID":19,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":7607}
+{"test":{"id":20,"name":"Counter widget reset button returns counter to 0","suiteID":0,"groupIDs":[7,8],"metadata":{"skip":false,"skipReason":null},"line":174,"column":5,"url":"package:flutter_test/src/widget_tester.dart","root_line":31,"root_column":5,"root_url":"file:///home/laffy/claude-workspace/rtk_flutter/test/widget_test.dart"},"type":"testStart","time":7607}
+{"testID":20,"messageType":"print","message":"Fetching user from https://jsonplaceholder.typicode.com/users/1","type":"print","time":7622}
+{"testID":20,"messageType":"print","message":"Error: 400","type":"print","time":7635}
+{"testID":20,"messageType":"print","message":"Counter incremented to 1","type":"print","time":7647}
+{"testID":20,"messageType":"print","message":"Counter incremented to 2","type":"print","time":7651}
+{"testID":20,"messageType":"print","message":"Reset from 2 to 0","type":"print","time":7661}
+{"testID":20,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":7671}
+{"test":{"id":21,"name":"Counter widget shows title in app bar","suiteID":0,"groupIDs":[7,8],"metadata":{"skip":false,"skipReason":null},"line":174,"column":5,"url":"package:flutter_test/src/widget_tester.dart","root_line":47,"root_column":5,"root_url":"file:///home/laffy/claude-workspace/rtk_flutter/test/widget_test.dart"},"type":"testStart","time":7671}
+{"testID":21,"messageType":"print","message":"Fetching user from https://jsonplaceholder.typicode.com/users/1","type":"print","time":7686}
+{"testID":21,"messageType":"print","message":"Error: 400","type":"print","time":7699}
+{"testID":21,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":7708}
+{"test":{"id":22,"name":"Counter widget counter starts at 5 - intentional failure","suiteID":0,"groupIDs":[7,8],"metadata":{"skip":false,"skipReason":null},"line":174,"column":5,"url":"package:flutter_test/src/widget_tester.dart","root_line":53,"root_column":5,"root_url":"file:///home/laffy/claude-workspace/rtk_flutter/test/widget_test.dart"},"type":"testStart","time":7708}
+{"testID":22,"messageType":"print","message":"Fetching user from https://jsonplaceholder.typicode.com/users/1","type":"print","time":7720}
+{"testID":22,"messageType":"print","message":"Error: 400","type":"print","time":7733}
+{"testID":22,"messageType":"print","message":"══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════\nThe following TestFailure was thrown running a test:\nExpected: exactly one matching candidate\n  Actual: _TextWidgetFinder:<Found 0 widgets with text \"5\": []>\n   Which: means none were found but one was expected\nExpected counter to start at 5, but it starts at 0\n\nWhen the exception was thrown, this was the stack:\n#4      main.<anonymous closure>.<anonymous closure> (file:///home/laffy/claude-workspace/rtk_flutter/test/widget_test.dart:57:7)\n<asynchronous suspension>\n#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)\n<asynchronous suspension>\n#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)\n<asynchronous suspension>\n<asynchronous suspension>\n(elided one frame from package:stack_trace)\n\nThis was caught by the test expectation on the following line:\n  file:///home/laffy/claude-workspace/rtk_flutter/test/widget_test.dart line 57\nThe test description was:\n  counter starts at 5 - intentional failure\n════════════════════════════════════════════════════════════════════════════════════════════════════","type":"print","time":7836}
+{"testID":22,"error":"Test failed. See exception logs above.\nThe test description was: counter starts at 5 - intentional failure","stackTrace":"","isFailure":false,"type":"error","time":7839}
+{"testID":22,"result":"error","skipped":false,"hidden":false,"type":"testDone","time":7841}
+{"success":false,"type":"done","time":7855}
